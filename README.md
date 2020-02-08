@@ -33,6 +33,8 @@ git clone git@github.com:gpoole/route53-dynamic-dns.git
 sudo ./install.sh
 ```
 
+You will need to have the [AWS CLI](https://aws.amazon.com/cli/) installed.
+
 To configure your AWS API credentials,
 the hosted zone and record to update,
 edit `/etc/route53-dynamic-dns/config`.
