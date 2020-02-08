@@ -1,0 +1,7 @@
+[Unit]
+Description=Update DNS on AWS
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/update-route53-dynamic-dns.sh
+EnvironmentFile=/etc/route53-dynamic-dns/config
