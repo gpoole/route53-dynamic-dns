@@ -1,15 +1,14 @@
 # Simple Route 53 dynamic DNS service
 
-A simple systemd service to periodically update a Route 53 record with the public IP address of the machine the service is running on.
-Useful for when you want a Route 53 A record to track a dynamic public IP address,
-for example of a home network.
-A self-managed alternative to free dynamic DNS services like DynDNS for AWS users.
+A simple systemd service to update a Route 53 record with your public IP address.
+Useful for tracking your home network IP address,
+similar to dynamic DNS services like DynDNS.
 
 # Setting up
 
 On AWS,
 you will need to set up a hosted zone in Route 53 and create an IAM limited-access user with at least `route53:ChangeResourceRecordSets` access.
-The following sample policy provides the minimum access required (note you need to specify your own hosted zone ID):
+This policy allows the minimum permissions:
 
 ```json
 {
@@ -36,11 +35,11 @@ sudo ./install.sh
 You will need to have the [AWS CLI](https://aws.amazon.com/cli/) installed.
 
 To configure your AWS API credentials,
-the hosted zone and record to update,
+the hosted zone and DNS record name,
 edit `/etc/route53-dynamic-dns/config`.
 
-By default the service is configured to update the address every 30 minutes,
-but you can change that by updating `OnActiveSec` in [route53-dynamic-dns.timer](./route53-dynamic-dns.timer) and running the installer again.
+By default the service is configured to update every 30 minutes,
+but you can change that by updating `OnActiveSec` in [route53-dynamic-dns.timer](./route53-dynamic-dns.timer) and running `install.sh`.
 If you want to manually trigger a one-off update,
 run:
 
