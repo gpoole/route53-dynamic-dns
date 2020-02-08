@@ -1,7 +1,6 @@
 #!/bin/bash
 echo "Installing services..."
 cp route53-dynamic-dns.service /etc/systemd/system
-cp route53-dynamic-dns.timer /etc/systemd/system
 cp -f ./update-route53-dynamic-dns.sh /usr/bin/
 
 mkdir -p /etc/route53-dynamic-dns/
@@ -11,7 +10,7 @@ if ! [ -r /etc/route53-dynamic-dns/config ]; then
 fi
 
 echo "Enabling services..."
-systemctl enable route53-dynamic-dns.service route53-dynamic-dns.timer
-systemctl start route53-dynamic-dns.timer
+systemctl enable route53-dynamic-dns
+systemctl start route53-dynamic-dns
 
 echo "Done."

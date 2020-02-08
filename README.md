@@ -35,14 +35,8 @@ sudo ./install.sh
 You will need to have the [AWS CLI](https://aws.amazon.com/cli/) installed.
 
 To configure your AWS API credentials,
-the hosted zone and DNS record name,
+update interval,
+hosted zone and DNS record name,
 edit `/etc/route53-dynamic-dns/config`.
 
-By default the service is configured to update every 30 minutes,
-but you can change that by updating `OnActiveSec` in [route53-dynamic-dns.timer](./route53-dynamic-dns.timer) and running `install.sh`.
-If you want to manually trigger a one-off update,
-run:
-
-```sh
-systemctl start route53-dynamic-dns
-```
+By default the service is configured to update every 30 minutes.

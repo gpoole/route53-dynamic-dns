@@ -1,7 +1,10 @@
 [Unit]
-Description=Update DNS on AWS
+Description=Update a DNS record on AWS Route 53 with our public IP address
 
 [Service]
 Type=simple
 ExecStart=/usr/bin/update-route53-dynamic-dns.sh
 EnvironmentFile=/etc/route53-dynamic-dns/config
+
+[Install]
+WantedBy=multi-user.target

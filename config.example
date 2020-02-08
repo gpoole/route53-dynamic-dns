@@ -6,5 +6,8 @@ AWS_ACCESS_KEY_ID=
 # The full name of the record to point at your own network
 RECORD_NAME=your-domain.name.com.
 
-# THe hosted zone ID
+# The hosted zone ID
 HOSTED_ZONE_ID=
+
+# How often (in seconds) to update
+UPDATE_INTERVAL=1800
